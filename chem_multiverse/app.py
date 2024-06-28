@@ -17,10 +17,10 @@ def main():
     }
 
     # Crear la aplicación de Streamlit
-    st.title('Visualización de t-SNE')
+    st.title('Chemical multiverse visualization')
 
     # Gráfico 1
-    st.subheader('ECFP4')
+    st.subheader('ECFP4 (1024-bits)')
     fig1 = px.scatter(
         df_tsne1,
         x='t-SNE Dimension 1',
@@ -31,16 +31,21 @@ def main():
         hover_data={
             'id': True,         # Mostrar ID del compuesto
             'database': True,   # Mostrar Database
+            't-SNE Dimension 1': False,     # Ocultar TSNE1
+            't-SNE Dimension 2': False      # Ocultar TSNE2
         },
         labels={
-            'database': 'Database',
-            'id': 'Compound ID'
+            'database': 'Database ',
+            'id': 'Compound ID '
         },
         width=800,  # Ajustar el ancho de la gráfica
-        height=600  # Ajustar la altura de la gráfica
+        height=800  # Ajustar la altura de la gráfica
     )
     st.plotly_chart(fig1)
 
+    # Texto como pie de figura
+    st.markdown("Extended-connectivity fingerprint with diameter 4 was used as molecular representation, and t-SNE was employed for dimensionality reduction.")
+    
     # Gráfico 2
     st.subheader("Properties related to Lipinski and Veber's rules")
     fig2 = px.scatter(
@@ -48,20 +53,26 @@ def main():
         x='t-SNE Dimension 1',
         y='t-SNE Dimension 2',
         color='database',
-        title="Properties related to Lipinski and Veber's rules",
+        title="Properties",
         color_discrete_map=color_discrete_map,
         hover_data={
             'id': True,         # Mostrar ID del compuesto
             'database': True,   # Mostrar Database
+            't-SNE Dimension 1': False,     # Ocultar TSNE1
+            't-SNE Dimension 2': False      # Ocultar TSNE2
         },
         labels={
-            'database': 'Database',
-            'id': 'Compound ID'
+            'database': 'Database ',
+            'id': 'Compound ID '
         },
         width=800,  # Ajustar el ancho de la gráfica
-        height=600  # Ajustar la altura de la gráfica
+        height=800  # Ajustar la altura de la gráfica
     )
     st.plotly_chart(fig2)
+
+    # Texto como pie de figura
+    st.markdown("Properties related to Lipinski and Veber's rules (MW, HBA, HBD, logP, TPSA and nRotBonds) were used as molecular descriptors, and t-SNE was employed for dimensionality reduction.")
+    
 
 if __name__ == '__main__':
     main()

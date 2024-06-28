@@ -19,6 +19,11 @@ def main():
     # Crear la aplicación de Streamlit
     st.title('Chemical multiverse visualization')
 
+    st.markdown("""
+    🔍 The generated visualizations are interactive. You can click on the database name on the right side to hide or show it. You can also zoom into the desired area and reset to the original size. For more information about compounds from DiaNat-DB_v2 based on their ID, consult the downloadable .csv file at [this link](https://github.com/DIFACQUIM/DiaNat-DB_v2/blob/main/data_sets/DiaNatDB_v2_2024.csv) or as an .xlsx file [here](https://github.com/DIFACQUIM/DiaNat-DB_v2/blob/main/data_sets/DiaNatDB_2v_2024.xlsx).
+     ✨ Have a great exploration!
+    """)
+    
     # Gráfico 1
     st.subheader('ECFP4 (1024-bits)')
     fig1 = px.scatter(
@@ -39,7 +44,7 @@ def main():
             'id': 'Compound ID '
         },
         width=800,  # Ajustar el ancho de la gráfica
-        height=800  # Ajustar la altura de la gráfica
+        height=600  # Ajustar la altura de la gráfica
     )
     st.plotly_chart(fig1)
 
@@ -66,7 +71,7 @@ def main():
             'id': 'Compound ID '
         },
         width=800,  # Ajustar el ancho de la gráfica
-        height=800  # Ajustar la altura de la gráfica
+        height=600  # Ajustar la altura de la gráfica
     )
     st.plotly_chart(fig2)
 

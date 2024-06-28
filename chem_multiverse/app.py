@@ -20,7 +20,7 @@ def main():
     st.title('Visualización de t-SNE')
 
     # Mostrar gráficos lado a lado usando columns
-    col1, col2 = st.beta_columns(2)
+    col1, col2 = st.columns(2)
 
     # Gráfico 1
     with col1:

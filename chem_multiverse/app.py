@@ -44,7 +44,7 @@ def main():
             'id': 'Compound ID '
         },
         width=800,  # Ajustar el ancho de la gráfica
-        height=600  # Ajustar la altura de la gráfica
+        height=700  # Ajustar la altura de la gráfica
     )
     st.plotly_chart(fig1)
 
@@ -71,7 +71,7 @@ def main():
             'id': 'Compound ID '
         },
         width=800,  # Ajustar el ancho de la gráfica
-        height=600  # Ajustar la altura de la gráfica
+        height=700  # Ajustar la altura de la gráfica
     )
     st.plotly_chart(fig2)
 
